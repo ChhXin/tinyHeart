@@ -24,6 +24,12 @@ var ane;
 var fruit;
 //定义大鱼类
 var mom;
+//定义小鱼类
+var baby;
+
+//定义鼠标位置
+var mx;
+var my;
 
 var bgPic = new Image();
 function game(){
@@ -42,6 +48,11 @@ function init(){
     can2 = document.getElementById("canvas2");
     ctx2 = can2.getContext("2d");
 
+
+    //添加鼠标移动事件监听
+    can1.addEventListener('mousemove', onMouseMove, false);
+
+    //设置背景
     bgPic.src = "./src/background.jpg";
 
     canWidth = can1.width;
@@ -53,6 +64,11 @@ function init(){
     fruit.init();
     mom = new momObj();
     mom.init();
+    baby = new babyObj();
+    baby.init();
+
+    mx = canWidth * 0.5;
+    my = canHeight * 0.5;
 }
 
 function gameloop(){
@@ -60,7 +76,10 @@ function gameloop(){
     var now = Date.now();
     deltaTime = now - lastTime;
     lastTime = now;
-
+    //优化果实变大的问题
+    if(deltaTime > 40){
+        deltaTime = 40;
+    }
     drawBackground();//绘制背景;
     ane.draw();//绘制海葵
     fruitMonitor();
@@ -68,4 +87,14 @@ function gameloop(){
 
     ctx1.clearRect(0,0,canWidth,canHeight);
     mom.draw();
+    momFruitCollison();
+    baby.draw();
+}
+
+function onMouseMove(e){
+    if (e.offsetX || e.layerX){
+        mx = e.offsetX == undefined ? e.layerX : e.offsetX;
+        my = e.offsetY == undefined ? e.layerY : e.offsetY;
+        //console.log(mx);
+    }
 }
