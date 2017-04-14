@@ -44,6 +44,8 @@ var data;
 
 //定义白色圈动画；
 var wave;
+//定义红色圈动画
+var halo;
 
 var mx;
 var my;
@@ -118,6 +120,8 @@ function init(){
     ctx1.textAlign = "center";
     wave = new waveObj();
     wave.init();
+    halo = new haloObj();
+    halo.init();
 }
 
 function gameloop(){
@@ -141,6 +145,7 @@ function gameloop(){
     momBabyCollision();
     data.draw();
     wave.draw();
+    halo.draw();
 }
 
 function onMouseMove(e){
