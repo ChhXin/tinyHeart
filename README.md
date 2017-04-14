@@ -5,5 +5,5 @@ html5小游戏
 
 一、进入游戏界面，如图所示： 
 
-![主界面](https://github.com/xinchanghao/androidclass3/blob/master/app/src/main/res/images/1.png)  
+![主界面](https://github.com/xinchanghao/TinyHeart/blob/master/src/1.png)  
 
