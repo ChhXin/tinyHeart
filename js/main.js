@@ -26,6 +26,7 @@ var fruit;
 var mom;
 //定义小鱼类
 var baby;
+
 //定义小鱼尾巴动画
 var babyTail = [];
 //定义小鱼眼睛动画
@@ -46,7 +47,9 @@ var data;
 var wave;
 //定义红色圈动画
 var halo;
-
+//定义漂浮物类；
+var dust;
+var dustPic = [];
 var mx;
 var my;
 
@@ -122,6 +125,12 @@ function init(){
     wave.init();
     halo = new haloObj();
     halo.init();
+    for(var i = 0; i < 7; i++){
+        dustPic[i] = new Image();
+        dustPic[i].src = "./src/dust" + i + ".png";
+    }
+    dust = new dustObj();
+    dust.init();
 }
 
 function gameloop(){
@@ -146,6 +155,7 @@ function gameloop(){
     data.draw();
     wave.draw();
     halo.draw();
+    dust.draw();
 }
 
 function onMouseMove(e){
