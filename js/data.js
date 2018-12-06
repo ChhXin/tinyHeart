@@ -24,7 +24,7 @@ dataObj.prototype.draw = function(){
     //ctx1.fillText("Number   "+ this.fruitNum, w * 0.5, h - 50);
     //ctx1.fillText("Double   "+ this.double, w * 0.5, h - 80);
     ctx1.fillText("SCORE :  "+ this.score, w * 0.5, h - 20);
-    ctx1.fillText("爱心鱼 - 化风制作", w * 0.5, h * 0.1);
+    ctx1.fillText("爱心鱼 - ChhXin", w * 0.5, h * 0.1);
 
     if(this.gameOver){
         this.alpha += deltaTime * 0.0005;
